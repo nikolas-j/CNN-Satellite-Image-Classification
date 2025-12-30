@@ -1,4 +1,4 @@
-# Satellite Ship Detection (Tiled CNN + Clustering, served via FastAPI)
+# Satellite Ship Detection (Tiled Convolutional neural network + Clustering, served via FastAPI)
 
 Detects and counts container ships in satellite imagery. The API accepts a satellite image **plus its ground resolution** and returns estimated ship locations and a total count.
 

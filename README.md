@@ -2,7 +2,7 @@
 
 Detects and counts container ships in satellite imagery. The API accepts a satellite image **plus its ground resolution** and returns estimated ship locations and a total count.
 
-**Key idea:** classify overlapping tiles with a CNN, then **deduplicate detections** by clustering positive tiles (DBSCAN) and reporting **cluster centroids** as ship positions.
+**Key idea:** classify overlapping tiles with a CNN (PyTorch, inspired by VGGNet), then **deduplicate detections** by clustering positive tiles (DBSCAN) and reporting **cluster centroids** as ship positions.
 
 ![/analyze/image API endpoint output.](misc/performance.png)
 
@@ -27,7 +27,7 @@ Dataset: https://www.kaggle.com/datasets/rhammell/ships-in-satellite-imagery
 
 ## Model + Inference
 
-- **Tile classifier:** small CNN (stacked Conv + MaxPool blocks)
+- **Tile classifier:** small CNN built on PyTorch (repeated Conv2d + MaxPool layers)
 - **Tile prediction:** binary ship / no-ship with confidence score
 - **Post-processing:** DBSCAN over positive tile centers → cluster centroids → ship locations
 
